@@ -65,7 +65,7 @@ Gma_018593-T1	8	yes\
 Gma_018489-T1	4	yes\
 Gma_018467-T1	6	yes
 
-# Differentiate between myriapod GH and contamination GH
+# Identify GHs that are from contamination
 ### Make directories
 &nbsp;&nbsp;&nbsp;&nbsp; mkdir /scratch/pawsey1193/lleclerc/CUHK_new/contigs\
 &nbsp;&nbsp;&nbsp;&nbsp; mkdir /scratch/pawsey1193/lleclerc/CUHK_new/contigs/neighbourhood\
@@ -199,4 +199,44 @@ Ato_000013-T1_cds_neighbourhood.blast.out	57	0	0	0	1.000	0.000	0.000	0.000	Bacte
 Ato_000266-T1_cds_neighbourhood.blast.out	75	2	0	3	0.938	0.025	0.000	0.037	Bacteria\
 Ato_000272-T1_cds_neighbourhood.blast.out	52	0	1	1	0.963	0.000	0.019	0.019	Bacteria
 
+# Phylogenetic analysis of myriapod GHs
+Now that we know which GHs are of myriapod origin (and not contamination), we can perform a phylogenetic analysis to determine their origin and evolution. 
 
+### make directories
+&nbsp;&nbsp;&nbsp;&nbsp;mkdir /scratch/pawsey1193/lleclerc/CUHK_new/trees\
+&nbsp;&nbsp;&nbsp;&nbsp;mkdir /scratch/pawsey1193/lleclerc/CUHK_new/trees/blast_outputs\
+&nbsp;&nbsp;&nbsp;&nbsp;mkdir /scratch/pawsey1193/lleclerc/CUHK_new/trees/logs
+
+## Example for GH5
+### Getting started
+Make a general GH5 directory for all the required sequences\
+&nbsp;&nbsp;&nbsp;&nbsp;mkdir /scratch/pawsey1193/lleclerc/CUHK_new/GHs/aa/5\
+Make .fasta files for the amino acid sequence of each myriapod GH5 in this directory. 
+
+Make a directory for diverse representatives of the GH. \
+&nbsp;&nbsp;&nbsp;&nbsp;mkdir /scratch/pawsey1193/lleclerc/CUHK_new/GHs/aa/5/GH5_reps\
+In this directory, add a .fasta file (e.g. GH5_reps.fasta) of the amino acid sequences of the 20 most diverse representatives of that GH using the NCBI Conserved Domain search tool (https://www.ncbi.nlm.nih.gov/Structure/wrpsb-out/wrpsb.cgi)
+
+Make a directory for the GH5 contaminants\
+&nbsp;&nbsp;&nbsp;&nbsp;mkdir /scratch/pawsey1193/lleclerc/CUHK_new/GHs/aa/5/contamination\
+Make a .fasta file of the amino acid sequences of all the GHs that were determined to be contaminated in the previous step. (These will be included in the tree in case the contaminants are related to the bacteria that led to the horizontal gene transfer of GHs in the myriapods). 
+
+List all the myriapod GHs that are from the GH5 family in GH5_samples.tsv. e.g. \
+Tco_015307-T1\
+Plu_002086-T1\
+Gma_009097-T1\
+Ato_055614-T1\
+Ato_042299-T1
+
+### Perform the BLAST searches
+
+Three different BLAST searches will be run, one with no filtering, one filtering out bacteria (taxid 2) and one filtering out bacteria and fungi (taxid 2 and 2,4751). This ensures that in the trees that are predominantly bacteria, there are some eukaryotic representatives. 
+
+In /scratch/pawsey1193/lleclerc/CUHK_new/trees, run _blast1.sh_, _blast2.sh_ and _blast3.sh_
+
+These scripts also remove spaces and convert the BLAST output from a .csv to a .fasta to ensure the following steps run smoothly.
+
+### Remove duplicate sequences and align the hits
+This script combines the myriapod GHs, BALST outputs, the Conserved Protein Domain representatives and bacterial contaminants (if present). It then removes duplicate sequences and does an alignment with MAFFT.  
+
+Run _mafft.sh_
