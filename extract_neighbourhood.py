@@ -8,7 +8,7 @@ from Bio import SeqIO
 CONTIG_TABLE = "/scratch/pawsey1193/lleclerc/CUHK_new/contigs/contig_names.txt"
 GFF_DIR      = "/scratch/pawsey1193/lleclerc/CUHK_new/gff"
 GENOME_DIR   = "/scratch/pawsey1193/lleclerc/CUHK_new/genome"
-OUTPUT_DIR   = "/scratch/pawsey1193/lleclerc/CUHK_new/contigs/neighbourhood"
+OUTPUT_DIR   = "/scratch/pawsey1193/lleclerc/CUHK_new/contigs/neighbourhood/10000"
 
 #contig_names.txt looks like this 
 #GH CDS  contig
