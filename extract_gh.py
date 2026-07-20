@@ -5,7 +5,7 @@ from Bio.Seq import Seq
 
 gff_dir = "/scratch/pawsey1193/lleclerc/CUHK_new/gff"
 fasta_dir = "/scratch/pawsey1193/lleclerc/CUHK_new/genome"
-output_dir = "/scratch/pawsey1193/lleclerc/CUHK_new/glycosyl_hydrolase_genes"
+output_dir = "/scratch/pawsey1193/lleclerc/CUHK_new/GHs"
 input_file = "/scratch/pawsey1193/lleclerc/CUHK_new/new_GH.txt"
 
 # Ensure output directory exists
