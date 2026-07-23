@@ -222,7 +222,9 @@ Make a directory for the GH5 contaminants\
 Make a .fasta file of the amino acid sequences of all the GHs that were determined to be contaminated in the previous step. (These will be included in the tree in case the contaminants are related to the bacteria that led to the horizontal gene transfer of GHs in the myriapods). 
 
 If the list of sequences are a .tsv or .csv (e.g. gene ID, sequence), use the commands below to convert them to .fasta\
-&nbsp;&nbsp;&nbsp;&nbsp; awk -F'\t' '{print ">"$1"\n"$2}' input.tsv > output.fasta
+for .tsv: \
+&nbsp;&nbsp;&nbsp;&nbsp; awk -F'\t' '{print ">"$1"\n"$2}' input.tsv > output.fasta \
+for .csv: \
 &nbsp;&nbsp;&nbsp;&nbsp; awk -F, 'NR>1{print ">"$1"\n"$2}' input.csv > output.fasta
 
 List all the myriapod GHs that are from the GH5 family in GH5_samples.tsv. e.g. \
