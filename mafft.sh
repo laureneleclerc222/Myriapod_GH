@@ -19,6 +19,7 @@ GH=5
 cat \
 /scratch/pawsey1193/lleclerc/CUHK_new/GHs/aa/"${GH}"/contamination/GH"${GH}"_contamination.fasta \
 /scratch/pawsey1193/lleclerc/CUHK_new/GHs/aa/"${GH}"/GH5_reps/GH"${GH}"_reps.fasta \
+/scratch/pawsey1193/lleclerc/CUHK_new/GHs/aa/"${GH}"/{Ato,Gma,Nno,Tco,Sym,Plu,Lni,Hho,Sma,Rim,Ttu}*.fasta \y
 /scratch/pawsey1193/lleclerc/CUHK_new/trees/blast_outputs/"${GH}"/{Ato,Gma,Nno,Tco,Sym,Plu,Lni,Hho,Sma,Rim,Ttu}*.fasta \
 > /scratch/pawsey1193/lleclerc/CUHK_new/trees/blast_outputs/"${GH}"/GH"${GH}"_combined.fasta
 
