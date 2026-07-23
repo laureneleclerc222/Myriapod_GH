@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name=blast_array_GH5_2
+#SBATCH --job-name=blast_array_GH5_3
 #SBATCH --account=pawsey1193
 #SBATCH --partition=work
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=5
+#SBATCH --cpus-per-task=2
 #SBATCH --mem=32G
 #SBATCH --time=10:00:00
 #SBATCH --array=1-5
