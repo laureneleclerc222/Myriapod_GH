@@ -221,6 +221,10 @@ Make a directory for the GH5 contaminants\
 &nbsp;&nbsp;&nbsp;&nbsp;mkdir /scratch/pawsey1193/lleclerc/CUHK_new/GHs/aa/5/contamination\
 Make a .fasta file of the amino acid sequences of all the GHs that were determined to be contaminated in the previous step. (These will be included in the tree in case the contaminants are related to the bacteria that led to the horizontal gene transfer of GHs in the myriapods). 
 
+If the list of sequences are a .tsv or .csv (e.g. gene ID, sequence), use the commands below to convert them to .fasta\
+&nbsp;&nbsp;&nbsp;&nbsp; awk -F'\t' '{print ">"$1"\n"$2}' input.tsv > output.fasta
+&nbsp;&nbsp;&nbsp;&nbsp; awk -F, 'NR>1{print ">"$1"\n"$2}' input.csv > output.fasta
+
 List all the myriapod GHs that are from the GH5 family in GH5_samples.tsv. e.g. \
 Tco_015307-T1\
 Plu_002086-T1\
@@ -237,6 +241,9 @@ In /scratch/pawsey1193/lleclerc/CUHK_new/trees, run _blast1.sh_, _blast2.sh_ and
 These scripts also remove spaces and convert the BLAST output from a .csv to a .fasta to ensure the following steps run smoothly.
 
 ### Remove duplicate sequences and align the hits
+Run _mafft.sh_ \
 This script combines the myriapod GHs, BALST outputs, the Conserved Protein Domain representatives and bacterial contaminants (if present). It then removes duplicate sequences and does an alignment with MAFFT.  
 
-Run _mafft.sh_
+### Construct the phylogenetic tree
+Run _iqtree.sh_ \
+This script makes all the sequence names unique and constructs the phylogenetic tree with IQ-TREE.
