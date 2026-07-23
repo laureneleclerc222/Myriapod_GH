@@ -13,7 +13,7 @@ cd /scratch/pawsey1193/lleclerc/CUHK_new/trees
 #load modules
 module load singularity/4.1.0-nompi
 
-GH=43
+GH=5
 
 #make sequence names all unique
 awk '
